@@ -25,7 +25,7 @@ setup:
 " > codecov.yml
 
 # Retrieving droplet: Codecov Enterprise
-docker run -d -p 80:80 \
+docker run -d -p 80:80 -p 443:443 \
            --link codecov-redis:redis \
            --link codecov-postgres:postgres \
            -v "$PWD/codecov.yml:/codecov.yml" \
@@ -43,11 +43,14 @@ echo "
 
 Thank you for choosing Codecov!
 
-Please navigate to http://$ip in your browser.
+**Next** Please navigate to http://$ip in your browser.
 
-Your codecov.yml configuration file is located here
-    $PWD/codecov.yml
-  
+- Your codecov.yml config: $PWD/codecov.yml
+- Please generate your own ssl certificates: https://github.com/codecov/enterprise/wiki/SSL
+  - The default ones are used for demo only.
+
+-------------------------------------------------------
+
 Request a trial license to have full system access.
 While in demo mode: you may only login with one user.
   and reports are deleted after 48 hours.
