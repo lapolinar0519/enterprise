@@ -5,6 +5,8 @@ RUN         apt-get update
 RUN         apt-get install -y supervisor nginx python-psycopg2 ca-certificates
 COPY        supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY        nginx.conf /etc/nginx/nginx.conf
+COPY        ssl/codecov.key /codecov.key
+COPY        ssl/codecov.crt /codecov.crt
 COPY        codecov /home/codecov
 
 EXPOSE      80
