@@ -2,17 +2,17 @@
 
 set -e +o pipefail
 
-use_nginx=0
+nginx_procnum=0
 numprocs=$(grep -c ^processor /proc/cpuinfo 2> /dev/null || echo '1')
 frontends='server localhost:8880;'
 
 if [ $# != 0 ];
 then
-  while getopts "np:" o
+  while getopts "n:p:" o
   do
     case "$o" in
       "n")
-        use_nginx=1
+        nginx_procnum="$OPTARG"
         ;;
       "p")
         numprocs="$OPTARG"
@@ -67,7 +67,7 @@ priority=1
 environment=DOCKER='true'$https
 " > /supervisord.conf
 
-if [ $use_nginx = 1 ];
+if [ $nginx_procnum != 0 ];
 then
   echo "
 [program:nginx]
@@ -78,7 +78,7 @@ stdout_logfile=/dev/stdout
 stdout_logfile_maxbytes=0
 stderr_logfile=/dev/stderr
 stderr_logfile_maxbytes=0
-numprocs=1
+numprocs=$nginx_procnum
 priority=3
 stopwaitsecs=600
 " >> /supervisord.conf

@@ -14,4 +14,4 @@ COPY        docker/mime.types /mime.types
 COPY        docker/codecov /codecov
 
 EXPOSE      22 80
-CMD         ["/bin/web+worker", "-n"]
+CMD         ["/bin/web+worker", "-n", "1"]
