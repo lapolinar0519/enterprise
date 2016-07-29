@@ -11,7 +11,7 @@ workers='1'
 
 if [ $# != 0 ];
 then
-  while getopts "n:p:c:q:" o
+  while getopts "n:p:c:q:w:" o
   do
     case "$o" in
       "n")
