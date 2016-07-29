@@ -3,7 +3,7 @@
 set -e +o pipefail
 
 nginx_procnum=0
-concurrency='-c 1'
+concurrency='1'
 numprocs='1'
 queue=''
 frontends='server localhost:8880;'
@@ -31,7 +31,7 @@ server localhost:888$i;"
          workers="$OPTARG"
          ;;
       "c")
-         concurrency="-c $OPTARG"
+         concurrency="$OPTARG"
          ;;
       "q")
          queue="--queue $OPTARG"
@@ -81,7 +81,7 @@ priority=1
 environment=DOCKER='true'$https
 
 [program:worker]
-command=/codecov worker -n %(process_num)d $concurrency $queue
+command=/codecov worker -n %(process_num)d -c $concurrency $queue
 process_name=%(program_name)s_%(process_num)d
 autorestart=true
 startsecs=10
