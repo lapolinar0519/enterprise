@@ -24,7 +24,7 @@ setup:
   cookie_secret: $random
 " > codecov.yml
 
-VERSION=":v4.1.0"
+VERSION=":v4.1.3"
 
 # Retrieving droplet: Codecov Enterprise
 docker run -d -p 80:80 \
