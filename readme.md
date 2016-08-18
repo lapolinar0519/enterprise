@@ -19,8 +19,10 @@ Codecov currently requires your team uses one or more of the following: GitHub, 
 1. Please read and sign our [EULA][eula]
 1. [Contact the Codecov Team][email] to receive a Trial License Key
 2. Run our installer: `curl -sSL https://git.io/v4jXc | sh`
-3. Adjust your setup file at `./codecov.yml` [read more][config]
+3. Adjust your setup file at `./codecov.yml`
 4. Restart
+
+> [Documentation][docs]
 
 
 ### Manifest
@@ -37,6 +39,6 @@ Codecov currently requires your team uses one or more of the following: GitHub, 
 
 
 
-[config]: https://github.com/codecov/enterprise/wiki/Configuration
+[docs]: http://docs.codecov.io
 [email]: mailto:enterprise@codecov.io
 [eula]: https://git.io/voUcJ
