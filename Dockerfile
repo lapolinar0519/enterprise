@@ -13,5 +13,5 @@ COPY        docker/https.nginx.conf /https.nginx.conf
 COPY        docker/mime.types /mime.types
 COPY        docker/codecov /codecov
 
-EXPOSE      22 80
+EXPOSE      80 443
 CMD         ["/bin/web+worker", "-n1"]
