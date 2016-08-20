@@ -47,6 +47,7 @@ fi
 # move files mounted to root into /config
 mv /mime.types /config/mime.types 2>/dev/null || true
 mv /nginx.conf /config/nginx.conf 2>/dev/null || true
+mv /codecov.yml /config/codecov.yml 2>/dev/null || true
 mv /codecov.key /config/codecov.key 2>/dev/null || true
 mv /codecov.crt /config/codecov.crt 2>/dev/null || true
 
@@ -94,10 +95,10 @@ priority=3
     then
       # use https nginx
       https=",FORCE_HTTPS='true'"
-      sed -e "s/__FRONTENDS__/$frontends/" /config/https.nginx.conf > /config/.nginx.conf
+      sed -e "s/__FRONTENDS__/$frontends/" /https.nginx.conf > /config/.nginx.conf
     else
       # use http nginx
-      sed -e "s/__FRONTENDS__/$frontends/" /config/http.nginx.conf > /config/.nginx.conf
+      sed -e "s/__FRONTENDS__/$frontends/" /http.nginx.conf > /config/.nginx.conf
     fi
   fi
 
@@ -114,7 +115,7 @@ numprocs=$web
 priority=1
 environment=DOCKER='true'$https
 " >> /config/supervisord.conf
-
+fi
 
 if [ $worker != "0" ];
 then
