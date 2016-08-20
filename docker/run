@@ -45,11 +45,11 @@ fi
 
 
 # move files mounted to root into /config
-[ ! -f /config/mime.types ] && ln -s /mime.types /config/mime.types
-[ -f /codecov.yml ] && ln -s /codecov.yml /config/codecov.yml
-[ -f /nginx.conf ] && ln -s /nginx.conf /config/nginx.conf
-[ -f /codecov.key ] && ln -s /codecov.key /config/codecov.key
-[ -f /codecov.crt ] && ln -s /codecov.crt /config/codecov.crt
+[ ! -f /config/mime.types ] && ln -s /mime.types /config/mime.types || true
+[ -f /codecov.yml ] && ln -s /codecov.yml /config/codecov.yml || true
+[ -f /nginx.conf ] && ln -s /nginx.conf /config/nginx.conf || true
+[ -f /codecov.key ] && ln -s /codecov.key /config/codecov.key || true
+[ -f /codecov.crt ] && ln -s /codecov.crt /config/codecov.crt || true
 
 
 # add supervisor defaults
