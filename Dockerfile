@@ -3,6 +3,7 @@ MAINTAINER  Codecov <enterprise@codecov.io>
 
 RUN         apk update
 RUN         apk add --upgrade python-dev postgresql-dev supervisor nginx
+run         mkdir /config
 COPY        docker/cacert.pem /etc/ssl/cert.pem
 COPY        docker/run /bin/run
 COPY        docker/config /bin/config
