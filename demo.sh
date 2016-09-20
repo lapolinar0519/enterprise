@@ -17,7 +17,7 @@ docker run --name codecov-postgres -d postgres
 ip=$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}' | tail -1)
 random=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1)
 
-echo "# Documentation at https://github.com/codecov/enterprise/wiki/Configuration
+echo "# Documentation at http://docs.codecov.io/docs/install-guide
 setup:
   codecov_url: http://$ip
   # enterprise_license: your_license_key_here
